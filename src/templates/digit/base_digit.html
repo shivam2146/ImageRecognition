@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %} Digit | {{ block.super }}{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li class="nav-item">
+			{% block image %}{% endblock image %}
+		</li>
+		<li class="nav-item">
+			{% block draw %}{% endblock draw %}
+		</li>
+	</ul><!--vav nav-tabs-->
+	<div class="row">
+		<!-- Post Content Column -->
+		<div class="col-lg-8">
+			<!-- Title -->
+			<h1 class="mt-4">Description(
+                                    {% if type == "cnn" %}
+                                      Convolution Network
+                                    {% elif type == "mlp" %}
+                                      Multilayer Network
+                                    {% else %}
+                                      Logistic Regression
+                                    {% endif %}
+         )</h1>
+			<hr>
+			<!-- Date/Time -->
+			{% block desc %}{% endblock desc %}
+			<hr>
+	     {% block digit_form %}		{% endblock digit_form %}
+		</div>
+			<!-- Sidebar Widgets Column -->
+			<div class="col-md-4" style="margin-top:70px">
+			<!-- Search Widget -->
+				<div class="card my-4" >
+					<h5 class="card-header" style="text-align:center">Digit </h5>
+					<div class="card-body">
+						<div class="input-group">
+							<input type="text" class="form-control" readonly="readonly" style="font-size: 100px; text-align:center" value="{{ number }}">
+						</div>
+					</div>
+				</div>
+        	</div>
+    </div>
+</div>
+{% block optional_js %}{% endblock optional_js %}
+{% endblock content %}

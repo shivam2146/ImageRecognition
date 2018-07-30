@@ -1,0 +1,27 @@
+{% extends "digit/base_digit.html" %}
+
+{% block image %}			<a class="nav-link " href="digit.html?type={{type}}">Image</a> {% endblock image %}
+
+{% block draw %}			<a class="nav-link active" href="#">Draw</a> {% endblock draw %}
+{% block desc %}			<p>Draw the number you want to recognize and then press Submit button. The output will be shown in the right box.</p> {% endblock desc %}
+{% block digit_form %}
+			<div class="card my-4" >
+				<h5 class="card-header" style="text-align:center">Draw Here </h5>
+				<div class="card-body">
+						<div id="canvasDiv" style="text-align:center"></div>
+				</div>
+			</div>
+  		<form method="post" action="draw.html"  onsubmit="prepareImg()"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name='type' value="{{type}}"/>
+  			<input type="hidden" id="image" name="canvas"  />
+  			<!--input type="button" id="save" value="save"/-->
+        <div class="text-center">
+          <input type="submit" name="submit" id="submit" value="submit" class="btn btn-primary text-center" />
+          <button type="button" class="btn btn-secondary ">Clear</button>
+        </div>
+  		</form>
+
+{% endblock digit_form %}
+
+{% block optional_js %}{% include 'digit/snippets/draw_js.html' %}{% endblock optional_js %}

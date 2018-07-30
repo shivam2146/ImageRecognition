@@ -1,0 +1,10 @@
+{% extends "digit/base_digit.html" %}
+
+
+{% block image %}			<a class="nav-link active" href="#">Image</a> {% endblock image %}
+
+{% block draw %}			<a class="nav-link" href="draw.html?type={{type}}">Draw</a> {% endblock draw %}
+
+{% block desc %}	<p>Select the image of the handwritten digit you want to recognize and then press Submit button. The output will be shown in the right box.</p> {% endblock desc %}
+
+{% block digit_form %}			{% include "digit/form_digit.html" %} {% endblock digit_form %}

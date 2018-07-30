@@ -1,0 +1,24 @@
+			<form action="cifar10.html" method="post" enctype="multipart/form-data" class="was-validated"><!--changed-->
+				{% csrf_token %}
+			  <div class="form-group">
+			    <div class="input-group mb-3">
+					<div class="custom-file was-validated" style="margin-top:20px">
+							{{form.pic}}
+							<label class="custom-file-label" for="validatedCustomFile">Choose file</label>
+					</div>
+					<div class="invalid-feedback d-flex" ></div>
+					<div class="valid-feedback d-flex" ><p id="valid"></p></div>
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary text-center">Submit</button>
+					<button type="button" class="btn btn-secondary ">Clear</button>
+				</div>
+			  </div>
+			</form>
+			<script type="text/javascript">
+				document.getElementById('validatedCustomFile').onchange = function () {
+					var filepath = this.value;
+					filename = filepath.replace(/^.*?([^\\\/]*)$/, '$1');
+				  document.getElementById('valid').innerHTML = filename;
+				};
+			</script>
