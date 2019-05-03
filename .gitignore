@@ -132,6 +132,11 @@ Podfile.lock
 /tensorflow/contrib/lite/gen/**
 /tensorflow/contrib/lite/examples/ios/simple/data/*.txt
 /tensorflow/contrib/lite/examples/ios/simple/data/*.tflite
+
+
+bin/
+share/
+include/
 xcuserdata/**
 /api_init_files_list.txt
 /estimator_api_init_files_list.txt
